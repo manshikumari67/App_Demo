@@ -7,13 +7,13 @@ const Navbar = (props) => {
     let isLoggedIn= props.isLoggedIn;
     let setIsLoggedIn = props.setIsLoggedIn;
   return (
-    <div className='flex justify-evenly bg-amber-500 h-[60px]'>
+    <div className='flex justify-between items-center w-11/12  max-w-[1160px] py-4 mx-auto h-12'>
        <Link to="/">
-          <img src={logo} alt="Logo" loading='lazy' className='h-15 w-30'/>
+          <img src={logo} alt="Logo" width={160} height={32} loading='lazy' className=''/>
        </Link>
 
        <nav>
-        <ul className='flex gap-3 mt-4'>
+        <ul className='flex gap-x-6 text-2xl'>
             <li>
                 <Link to="/">Home</Link>
             </li>
@@ -29,24 +29,26 @@ const Navbar = (props) => {
         </ul>
        </nav>
         
-        <div className='flex ml-5 mt-4 mr-3 gap-3'> 
+        <div className='flex ml-5  mr-3 gap-3'> 
             { !isLoggedIn &&
                 <Link to="/login">
-                    <button>
+                    <button className='py-[8px] px-[12px] rounded-[8px] border border-blue-950 bg-gray-700 text-white'>
                         Log in
                     </button>
                 </Link>
             }
             { !isLoggedIn &&
                 <Link to="/signup">
-                    <button>
+                    <button className='py-[8px] px-[12px] rounded-[8px] border border-blue-950 bg-gray-700 text-white'>
                         Sign Up
                     </button>
                 </Link>
             }
             { isLoggedIn &&
                 <Link to="/">
-                    <button onClick={() =>{
+                    <button 
+                    className='py-[8px] px-[12px] rounded-[8px] border border-blue-950 bg-gray-700 text-white'
+                    onClick={() =>{
                         setIsLoggedIn(false);
                         toast.success("Logged Out");
                     }}>
@@ -56,7 +58,8 @@ const Navbar = (props) => {
             }
             { isLoggedIn &&
                 <Link to="/dashboard">
-                    <button>
+                    <button
+                    className='py-[8px] px-[12px] rounded-[8px] border border-blue-950 bg-gray-700 text-white'>
                         Dashboard
                     </button>
                 </Link>
